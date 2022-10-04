@@ -1,6 +1,5 @@
 // All valid credit card numbers
-const valid1 = [4,5,5,6,6,0,9,0,8,1,6,9,4,2,3,2
-];
+const valid1 = [4,5,5,6,6,0,9,0,8,1,6,9,4,2,3,2];
 const valid2 = [5, 5, 3, 5, 7, 6, 6, 7, 6, 8, 7, 5, 1, 4, 3, 9];
 const valid3 = [3,5,3,5,9,8,7,9,2,2,7,8,7,3,4,6,3,3];
 const valid4 = [6, 0, 1, 1, 1, 4, 4, 3, 4, 0, 6, 8, 2, 9, 0, 5];
@@ -27,7 +26,7 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 // Add your functions below:
 
 function validateCred(array){
-  /*valid return true, not return false*/
+  /*If card number is valid return true, not return false*/
 for (let i=array.length-2; i>=0;i=i-2)
 {array[i] = array[i]* 2;
 if (array[i]>9){
@@ -46,7 +45,7 @@ return sum;
  }
 
 function findInvalidCards(array){
-  /*valid return true, not return false*/
+  /*If card is invalid return true, not return false*/
 for (let i=array.length-2; i>=0;i=i-2)
 {array[i] = array[i]* 2;
 if (array[i]>9){
@@ -66,6 +65,7 @@ return sum;
 
 function idInvalidCardCompanies(array)
 {
+    // Function allows the user to know what companies were used when we found invalid credit card numbers.
   let newArray=[]
  for(let i=0; i<array.length; i++){
   switch (array[i][0]){
@@ -85,7 +85,7 @@ function idInvalidCardCompanies(array)
     array[i][0] ='Company not found';
 } 
   newArray.push(array[i][0]);
-  /*console.log(newArray[i]);*/
+ 
   }
   const result = newArray.reduce((acc,item)=>{
 if(!acc.includes(item)){
@@ -96,7 +96,7 @@ console.log(result[i])}
   }
 
 function alwaysValidCardId(array){
-  
+  //This function insures that the credit card ids are always valid.
   /*valid return true, not return false*/
 for (let i=array.length-2; i>=0;i=i-2)
 {array[i] = array[i]* 2;
@@ -124,5 +124,3 @@ console.log(findInvalidCards(valid3));
 
 console.log(alwaysValidCardId(invalid3));
 idInvalidCardCompanies(batch);
-
-
